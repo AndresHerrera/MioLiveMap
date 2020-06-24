@@ -119,6 +119,7 @@ $ pip install pykafka
 ```
 
 ```bash
+$ cd Producers
 $ python mio_bus.py ./routes/ruta_9.geojson A44B
 $ python mio_bus.py ./routes/ruta_42.geojson P21A
 $ python mio_bus.py ./routes/ruta_61.geojson A47
@@ -134,6 +135,7 @@ $ pip install flask
 ```
 
 ```bash
+$ cd MapClient
 $ python app.py
 ```
 
