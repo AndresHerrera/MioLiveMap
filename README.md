@@ -4,16 +4,14 @@
 
 ## Install Apache Kafka and dependecies
 
-Install Java
-=======
+### Install Java
 
 ```bash
 $ sudo apt update
 $ sudo apt install default-jdk
 ```
 
-Download and Install Apache Kafka
-=======
+### Download and Install Apache Kafka
 
 ```bash
 $ wget http://www-us.apache.org/dist/kafka/2.4.0/kafka_2.13-2.4.0.tgz
@@ -21,8 +19,7 @@ $ tar xzf kafka_2.13-2.4.0.tgz
 $ sudo mv kafka_2.13-2.4.0 /usr/local/kafka
 ```
 
-Download and install Zookeeper
-=======
+### Download and install Zookeeper
 
 ```
 $ sudo apt-get install zookeeperd
@@ -83,8 +80,7 @@ Reload the systemd daemon
 $ systemctl daemon-reload
 ```
 
-Start Kafka Server
-=======
+### Start Kafka Server
 
 ```bash
 $ sudo systemctl start zookeeper
@@ -92,8 +88,8 @@ $ sudo systemctl start kafka
 $ sudo systemctl status kafka
 ```
 
-Create a Topic in Server
-=======
+### Create a Topic in Server
+
 ```bash
 $ cd /usr/local/kafka
 ```
@@ -114,8 +110,14 @@ Delete a topic in Kafka
 bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic geodata_mio
 ```
 
-Producers
-=======
+### Run producers data
+
+Install pykafka library
+
+```bash
+$ pip install pykafka
+```
+
 ```bash
 $ python mio_bus.py ./routes/ruta_9.geojson A44B
 $ python mio_bus.py ./routes/ruta_42.geojson P21A
@@ -123,16 +125,23 @@ $ python mio_bus.py ./routes/ruta_61.geojson A47
 $ python mio_bus.py ./routes/ruta_25.geojson A71
 ```
 
-MapClient
-=======
+### Run MapClient
+
+Install Flask library
+
+```bash
+$ pip install flask
+```
+
 ```
 $ python app.py
 ```
 
 Visit `http://127.0.0.1:5001/` in your browser. The app should be up & running.
 
+![screenshot](screenshot.png)
 
-## Credits & Links
+### Credits & Links
 
 * Install apache kafka in Ubuntu [Apache Kafka](https://tecadmin.net/install-apache-kafka-ubuntu/)
 * Realtime maps with Kafka, Python and Leaflet.js  [liveMaps](https://github.com/code-and-dogs/liveMaps)
