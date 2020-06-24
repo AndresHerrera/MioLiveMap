@@ -21,7 +21,7 @@ $ sudo mv kafka_2.13-2.4.0 /usr/local/kafka
 
 ### Download and install Zookeeper
 
-```
+```bash
 $ sudo apt-get install zookeeperd
 ```
 
@@ -48,7 +48,7 @@ Restart=on-abnormal
 
 [Install]
 WantedBy=multi-user.target
-``
+```
 
 Create a Kafka systemd unit 
 
@@ -76,7 +76,7 @@ WantedBy=multi-user.target
 
 Reload the systemd daemon
 
-```
+```bash
 $ systemctl daemon-reload
 ```
 
@@ -107,7 +107,7 @@ $ bin/kafka-topics.sh --list --zookeeper localhost:2181
 Delete a topic in Kafka
 
 ```bash
-bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic geodata_mio
+$ bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic geodata_mio
 ```
 
 ### Run producers data
@@ -133,7 +133,7 @@ Install Flask library
 $ pip install flask
 ```
 
-```
+```bash
 $ python app.py
 ```
 
