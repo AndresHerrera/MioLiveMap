@@ -14,9 +14,9 @@ $ sudo apt install default-jdk
 ### Download and Install Apache Kafka
 
 ```bash
-$ wget http://www-us.apache.org/dist/kafka/2.4.0/kafka_2.13-2.4.0.tgz
-$ tar xzf kafka_2.13-2.4.0.tgz
-$ sudo mv kafka_2.13-2.4.0 /usr/local/kafka
+$ wget https://downloads.apache.org/kafka/2.8.0/kafka_2.13-2.8.0.tgz
+$ tar xzf kafka_2.13-2.8.0.tgz
+$ sudo mv kafka_2.13-2.8.0 /usr/local/kafka
 ```
 
 ### Download and install Zookeeper
