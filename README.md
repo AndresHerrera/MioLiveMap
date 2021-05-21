@@ -15,6 +15,11 @@ $ sudo apt install default-jdk
 
 ```bash
 $ wget https://downloads.apache.org/kafka/2.8.0/kafka_2.13-2.8.0.tgz
+
+alternative:
+
+$ wget http://52.12.133.74/kafka/kafka_2.13-2.8.0.tgz
+
 $ tar xzf kafka_2.13-2.8.0.tgz
 $ sudo mv kafka_2.13-2.8.0 /usr/local/kafka
 ```
