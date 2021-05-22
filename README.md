@@ -1,6 +1,6 @@
 # MioLiveMap
 
-**Realime web-mapping using Apache kafka**
+**Realtime web-mapping using Apache kafka**
 
 ## Install Apache Kafka and dependecies
 
@@ -152,12 +152,3 @@ Visit `http://127.0.0.1:5001/` in your browser. The app should be up & running.
 
 * Install apache kafka in Ubuntu [Apache Kafka](https://tecadmin.net/install-apache-kafka-ubuntu/)
 * Realtime maps with Kafka, Python and Leaflet.js  [liveMaps](https://github.com/code-and-dogs/liveMaps)
-
-
-
-
-
-
-
-
-
