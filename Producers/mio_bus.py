@@ -17,7 +17,7 @@ def generate_uuid():
 
 #KAFKA PRODUCER
 client = KafkaClient(hosts="localhost:9092")
-topic = client.topics['geodata_mio']
+topic = client.topics['geodatamio']
 producer = topic.get_sync_producer()
 
 #CONSTRUCT MESSAGE AND SEND IT TO KAFKA

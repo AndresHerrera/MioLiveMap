@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', function () {
+	
 var mymap = L.map('mapid').setView([3.42335,-76.52086], 12);
 L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
 {
@@ -12,8 +14,16 @@ listMarkers = [];
 //mapMarkers1 = [];
 
 
+var busIcon = L.icon({
+    iconUrl: '../static/leaflet/images/icon-green50.png',
+    shadowUrl: '../static/leaflet/images/icon-green50_sombra.png',
+    iconAnchor:   [17, 46],
+    popupAnchor:  [0, -46]
+});
+
+
 //Topic Name
-var source = new EventSource('/topic/geodata_mio'); 
+var source = new EventSource('/topic/geodatamio'); 
 source.addEventListener('message', function(e)
 {
    console.log('Message');
@@ -29,7 +39,7 @@ source.addEventListener('message', function(e)
   }
 else
   {
-	console.log("This route already exists");
+	console.log("Esta ruta ya existe !");
   }
   
 
@@ -37,10 +47,11 @@ else
   {
      if(obj.ruta == listRoutes[i]) 
      {
-	 console.log(listMarkers[i].name);
+	 //console.log(listMarkers[i].name);
 	 var newLatLng = new L.LatLng(obj.latitude, obj.longitude);
          listMarkers[i].marker.setLatLng(newLatLng);
-         listMarkers[i].marker.addTo(mymap).bindPopup("<b>Ruta: </b>"+listMarkers[i].name+"<br>");
+		 listMarkers[i].marker.setIcon(busIcon);
+         listMarkers[i].marker.addTo(mymap).bindPopup("<b>Ruta: </b>"+listMarkers[i].name+"<br>"+"Latitud: "+ listMarkers[i].marker._latlng.lat+"<br>"+"Longitud: "+listMarkers[i].marker._latlng.lng);
      }
   }
 
@@ -54,10 +65,10 @@ else
       mapMarkers1.push(marker1);
   }*/
 
-   console.log(listRoutes);
-   console.log(listMarkers);
+   //console.log(listRoutes);
+   //console.log(listMarkers);
 
-}, false);
+}, true);
 
 
 function routesFactory(routeName)
@@ -65,7 +76,7 @@ function routesFactory(routeName)
   console.log('Nueva ruta creada: ' + routeName);
   routeObj={
     name:routeName,
-    icon:'icon_'+routeName+'.png',
+    icon:'icon.png',
     marker: L.marker()
   };
   listMarkers.push(routeObj);
@@ -79,6 +90,8 @@ function addRouteListing(routeName)
    document.getElementById("routes_list").appendChild(node);     
 }
 
+
+});
 
 
 
