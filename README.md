@@ -71,7 +71,7 @@ Requires=zookeeper.service
 
 [Service]
 Type=simple
-Environment="JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64"
+Environment="JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64"
 ExecStart=/usr/local/kafka/bin/kafka-server-start.sh /usr/local/kafka/config/server.properties
 ExecStop=/usr/local/kafka/bin/kafka-server-stop.sh
 
@@ -100,7 +100,7 @@ $ cd /usr/local/kafka
 ```
 
 ```bash
-$ bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic geodata_mio
+$ bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic geodatamio
 ```
 
 Show the topics created in Kafka
@@ -109,10 +109,24 @@ Show the topics created in Kafka
 $ bin/kafka-topics.sh --list --zookeeper localhost:2181
 ```
 
+Allow delete topics
+
+```bash
+$ cd /usr/local/kafka/config
+$ vim server.properties
+```
+
+Add this line to the end 
+
+```bash
+delete.topic.enable=true
+```
+
+
 Delete a topic in Kafka
 
 ```bash
-$ bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic geodata_mio
+$ bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic geodatamio
 ```
 
 ### Run producers data
@@ -120,7 +134,8 @@ $ bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic geodata_mio
 Install pykafka library
 
 ```bash
-$ pip install pykafka
+$ sudo pip install pykafka
+
 ```
 
 ```bash
@@ -136,7 +151,8 @@ $ python mio_bus.py ./routes/ruta_25.geojson A71
 Install Flask library
 
 ```bash
-$ pip install flask
+$ sudo pip install flask
+$ sudo pip install wsgiserver
 ```
 
 ```bash
@@ -144,7 +160,7 @@ $ cd MapClient
 $ python app.py
 ```
 
-Visit `http://127.0.0.1:5001/` in your browser. The app should be up & running.
+Visit `http://localhost:5001/` in your browser. The app should be up & running.
 
 ![screenshot](screenshot.png)
 
